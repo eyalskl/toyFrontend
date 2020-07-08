@@ -1,0 +1,12 @@
+.toy-filter {
+    margin: 0 auto;
+}
+
+.toy-filter .selected {
+    background-color: #00b8ec;
+    color: white;
+}
+
+.toy-filter>* {
+    margin: 0 .5rem;
+}

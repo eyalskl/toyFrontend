@@ -1,0 +1,38 @@
+.toy-preview-header {
+    text-transform: capitalize;
+    margin-block-start: 0;
+}
+
+.toy-preview-type {
+    background-color: #6c757d;
+    color: white;
+    display: inline-block;
+    padding: 0.25em 0.4em;
+    font-size: 0.8rem;
+    font-weight: 700;
+    border-radius: 0.25rem;
+    margin: 2.5px;
+    margin-top: 5px;
+    cursor: default;
+}
+
+.toy-preview h5 {
+    margin: .5rem;
+}
+
+.toy-preview h5:last-of-type {
+    margin-block-end: 2rem;
+}
+
+.toy-preview-stock {
+    text-transform: uppercase;
+    text-shadow: .5px .5px 1px black;
+}
+
+.toy-preview-stock.instock {
+    color: rgb(40, 139, 53);
+}
+
+.toy-preview-stock.offstock {
+    color: rgb(255, 46, 46);
+}

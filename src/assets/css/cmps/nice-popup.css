@@ -1,0 +1,17 @@
+.nice-popup {
+    position: fixed;
+    background-color: #1e1f21;
+    color: white;
+    width: 20rem;
+    padding: 1rem;
+    bottom: 0;
+    z-index: 2;
+    right: 5rem;
+    height: 30rem;
+    max-height: 30rem;
+}
+
+.nice-popup .header {
+    text-decoration: underline;
+    margin-block-end: 1rem;
+}

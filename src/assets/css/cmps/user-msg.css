@@ -1,0 +1,25 @@
+.alert {
+    color: rgb(56, 56, 56);
+    border: 1px solid white;
+    padding: 1rem;
+    font-size: 1.25rem;
+    position: fixed;
+    z-index: 1;
+    top: .5rem;
+    right: 1rem;
+    border-radius: 0.33rem;
+    text-transform: capitalize;
+    background-color: grey;
+}
+
+.alert-success {
+    background-color: rgb(106, 255, 106);
+}
+
+.alert-danger {
+    background-color: rgb(255, 107, 107);
+}
+
+.alert-error {
+    background-color: rgb(255, 0, 0);
+}
