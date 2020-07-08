@@ -13,12 +13,11 @@ function _getUrl(id = '') {
     return `${BASE_URL}/${id}`;
 }
 
-function query() {
-    // const inStockPart = (filterBy.inStock) ? `&inStock=${filterBy.inStock}` : '';
-    // const typePart = (filterBy.type) ? `&type_like=${filterBy.type}` : '';
-    // const sortPart = (filterBy.sort) ? `&_sort=${filterBy.sort}&_order=asc` : '';
-    // return axios.get(`http://localhost:3000/toy?name_like=${filterBy.name}${inStockPart}${typePart}${sortPart}`)
-    return axios.get(_getUrl())
+function query(filterBy) {
+    const inStockPart = (filterBy.inStock) ? `&inStock=${filterBy.inStock}` : '';
+    const typePart = (filterBy.type) ? `&type=${filterBy.type}` : '';
+    const sortPart = (filterBy.sort) ? `&sort=${filterBy.sort}` : '';
+    return axios.get(`${_getUrl()}?name=${filterBy.name}${inStockPart}${typePart}${sortPart}`)
         .then(res => res.data)
 }
 

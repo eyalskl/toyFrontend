@@ -8,6 +8,7 @@
       <router-link to="/toy"> Toys </router-link>
       <router-link to="/toy/edit"> Add Toy </router-link>
       <router-link to="/user"> Profile </router-link>
+      <router-link to="/dashboard"> Dashboard </router-link>
       <router-link to="/about"> About </router-link>
     </div>
   </nav>

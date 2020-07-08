@@ -15,7 +15,7 @@
       </label>
       <label>
         Price:
-        <input type="number" v-model="toyToEdit.price" placeholder="Insert price..." />
+        <input type="number" v-model.number="toyToEdit.price" placeholder="Insert price..." />
       </label>
       <label>
         In stock?
@@ -27,6 +27,8 @@
 </template>
 
 <script>
+import { ValidationProvider } from "vee-validate";
+
 import { toyService } from "@/services/toy.service.js";
 import { eventBus, SHOW_MSG } from "@/services/event-bus.service.js";
 const _ = require("lodash");
@@ -66,6 +68,9 @@ export default {
   },
   created() {
     this.loadToy();
+  },
+  components: {
+    ValidationProvider
   }
 };
 </script>

@@ -1,29 +1,40 @@
 <template>
   <div class="toy-filter flex">
     <div class="search-bar">
-      <input @input="setFilter" v-model="filterBy.name" type="search" placeholder="Search toys" />
+      <input
+        @input="setFilter"
+        v-model="filterBy.name"
+        type="search"
+        placeholder="Search toys"
+      />
     </div>
     <div class="in-stock-filter">
       <button @click="setInStockFilter('')" :class="allSelected">All</button>
-      <button @click="setInStockFilter('true')" :class="inStockSelected">In Stock</button>
-      <button @click="setInStockFilter('false')" :class="offStockSelected">Out of Stock</button>
+      <button @click="setInStockFilter('true')" :class="inStockSelected">
+        In Stock
+      </button>
+      <button @click="setInStockFilter('false')" :class="offStockSelected">
+        Out of Stock
+      </button>
     </div>
-    <select @change="setFilter" v-model="filterBy.type">
-      <option value>All</option>
-      <option value="educational">Educational</option>
-      <option value="children">Children</option>
-      <option value="funny">Funny</option>
-      <option value="adult">Adult</option>
-    </select>
-    <select @change="setFilter" v-model="filterBy.sort">
-      <option value>Sort By</option>
-      <option value="name">Name</option>
-      <option value="price">Price</option>
-    </select>
+    <select-box
+      @input="setFilter"
+      type="Filter by type"
+      :options1="toysType"
+      v-model="filterBy.type"
+    />
+    <select-box
+      @input="setFilter"
+      type="Sort by"
+      :options1="sort"
+      v-model="filterBy.sort"
+    />
   </div>
 </template>
 
 <script>
+import selectBox from "@/custom-cmps/select-box.cmp.vue";
+
 export default {
   name: "toy-filter",
   data() {
@@ -32,8 +43,9 @@ export default {
         name: "",
         inStock: "",
         type: "",
-        sort: ""
-      }
+        sort: "",
+      },
+      sort: ["Name", "Price"],
     };
   },
   computed: {
@@ -45,7 +57,16 @@ export default {
     },
     inStockSelected() {
       if (this.filterBy.inStock === "true") return "selected";
-    }
+    },
+    toys() {
+      return this.$store.getters.toys;
+    },
+    toysType() {
+      return this.toys.reduce((acc, toy) => {
+        if (!acc.includes(toy.type)) acc.push(toy.type);
+        return acc;
+      }, []);
+    },
   },
   methods: {
     setInStockFilter(inStock) {
@@ -54,10 +75,12 @@ export default {
     },
     setFilter() {
       this.$emit("filter", this.filterBy);
-    }
-  }
+    },
+  },
+  components: {
+    selectBox,
+  },
 };
 </script>
 
-<style>
-</style>
+<style></style>

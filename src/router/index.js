@@ -6,6 +6,7 @@ import toyDetails from '@/views/toy-details.cmp.vue'
 import toyEdit from '@/views/toy-edit.cmp.vue'
 import userProfile from '@/views/user-profile.cmp.vue'
 import aboutUs from '@/views/about-us.cmp.vue'
+import dashboard from '@/views/dashboard.cmp.vue'
 
 Vue.use(VueRouter)
 
@@ -18,6 +19,11 @@ const routes = [{
         path: '/user',
         name: 'UserProfile',
         component: userProfile
+    },
+    {
+        path: '/dashboard',
+        name: 'Dashboard',
+        component: dashboard
     },
     {
         path: '/toy',
