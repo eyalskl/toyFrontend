@@ -4,7 +4,8 @@
 
 .toy-container {
     position: relative;
-    background-color: #00b9ecda;
+    /* background-color: #00b9ecda; */
+    background-color: #ffffff;
     border: 1px solid #bbbbbb;
     padding: 1rem;
     margin: 1rem;

@@ -2,6 +2,7 @@
   <div class="toy-preview flex column align-center">
       <h3 class="toy-preview-header"> {{ toy.name }} - ${{ toy.price }} </h3>
       <p class="toy-preview-type"> {{toy.type}} </p>
+      <img :src="`https://robohash.org/${toy._id}.png`">
       <h5 class="toy-preview-stock" :class="inStock">  {{ (toy.inStock) ? 'In Stock' : 'Out of Stock' }} </h5>
       <h5 class="toy-preview-created"> Added {{ toy.createdAt | relativeTime }} </h5>
   </div>
