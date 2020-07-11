@@ -1,6 +1,7 @@
 <template>
-  <div class="toy-filter flex">
+  <div class="toy-filter flex column">
     <div class="search-bar">
+      <button @click="setFilter" > <i class="fas fa-search"></i> </button>
       <input
         @input="setFilter"
         v-model="filterBy.name"
@@ -17,6 +18,8 @@
         Out of Stock
       </button>
     </div>
+    <div class="select-boxes flex">
+
     <select-box
       @input="setFilter"
       type="Filter by type"
@@ -29,6 +32,7 @@
       :options1="sort"
       v-model="filterBy.sort"
     />
+    </div>
   </div>
 </template>
 
@@ -36,37 +40,38 @@
 import selectBox from "@/custom-cmps/select-box.cmp.vue";
 
 export default {
-  name: "toy-filter",
+  name: 'toy-filter',
   data() {
     return {
       filterBy: {
-        name: "",
-        inStock: "",
-        type: "",
-        sort: "",
+        name: '',
+        inStock: '',
+        type: '',
+        sort: '',
       },
-      sort: ["Name", "Price"],
+      sort: ['Name', 'Price', 'Recently Added'],
+      toysType: ['Adult', 'Programming', 'Funny', 'Sleepy', 'Educational', 'Teenagers'],
     };
   },
   computed: {
     allSelected() {
-      if (this.filterBy.inStock === "") return "selected";
+      if (this.filterBy.inStock === '') return 'selected';
     },
     offStockSelected() {
-      if (this.filterBy.inStock === "false") return "selected";
+      if (this.filterBy.inStock === 'false') return 'selected';
     },
     inStockSelected() {
-      if (this.filterBy.inStock === "true") return "selected";
+      if (this.filterBy.inStock === 'true') return 'selected';
     },
     toys() {
       return this.$store.getters.toys;
     },
-    toysType() {
-      return this.toys.reduce((acc, toy) => {
-        if (!acc.includes(toy.type)) acc.push(toy.type);
-        return acc;
-      }, []);
-    },
+    // toysType() {
+    //   return this.toys.reduce((acc, toy) => {
+    //     if (!acc.includes(toy.type)) acc.push(toy.type);
+    //     return acc;
+    //   }, []);
+    // },
   },
   methods: {
     setInStockFilter(inStock) {
@@ -82,5 +87,3 @@ export default {
   },
 };
 </script>
-
-<style></style>

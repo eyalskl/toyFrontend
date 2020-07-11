@@ -23,7 +23,7 @@ export const userStore = {
                     return user
                 })
         },
-        saveuser({ commit }, { user }) {
+        saveUser({ commit }, { user }) {
             return userService.save(user)
                 .then((savedUser) => {
                     commit({ type: 'setUser', user: savedUser })

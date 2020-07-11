@@ -1,0 +1,16 @@
+.toy-main {
+    max-height: calc(100vh - 5rem);
+}
+
+.main-app {
+    display: grid;
+    grid-template-columns: minmax(2em, 1fr) minmax(auto, 1180px) minmax(2em, 1fr);
+}
+
+.toy-main {
+    grid-column: 2;
+}
+
+.toy-all {
+    grid-column: 1/ -1;
+}

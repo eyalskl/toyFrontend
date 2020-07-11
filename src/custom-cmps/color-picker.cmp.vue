@@ -1,21 +1,23 @@
 <template>
   <div class="color-picker flex column">
-      <h2>Pick your favorite color</h2>
-      <div class="colors-container flex wrap">
-        <span :class="{picked : color === pickedColor}" v-for="(color, idx) in colors" :key="idx" @click="setColor(color)" :style="{backgroundColor : color}"> </span>
+      <h4>Pick your favorite color</h4>
+      <div class="colors-container flex wrap justify-center">
+        <span :class="{picked : color === pickedColor}" v-for="(color, idx) in colors" :key="idx" @click.stop="setColor(color)" :style="{backgroundColor : color}"> </span>
+        <span @click.stop="showMore" title="More colors..." class="show-more"> <i class="fas fa-plus"></i> </span>
       </div>
   </div>
 </template>
 
 <script>
 
-const colors = require('nice-color-palettes');
+var colors = require('nice-color-palettes/1000');
 const _ = require('lodash')
 
 export default {
     data() {
         return {
-            colors: _.flatten(colors).slice(0,20),
+            startFrom: 0,
+            colors: _.flatten(colors).slice(this.startFrom, 19),
             pickedColor: '69d2e7'
         }
     },
@@ -23,37 +25,45 @@ export default {
         setColor(color) {
             this.pickedColor = color
             this.$emit('input', color)
+        },
+        showMore() {
+            if (this.startFrom > 981) this.startFrom = 0;
+            else this.startFrom += 19;
+            this.colors = _.flatten(colors).slice(this.startFrom, this.startFrom + 19)
         }
-    }
+    },
 }
 </script>
 
 <style scoped>
-    .color-picker h2 {
+    .color-picker h4 {
         text-transform: capitalize;
-        margin-top: 0;
-        text-decoration: underline;
+        margin-bottom: .5rem;
     }
     .color-picker {
         background-color: #fff;
         border-radius: .33rem;
-        border: 1px solid black;
+        border: 1px solid #717171;
         padding: 1rem;
-        width: 18.5rem;
-        margin: 1rem;
+        width: 15rem;
     }
     .color-picker span {
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 1.75rem;
+        font-size: 1.25rem;
         color: white;
         font-weight: bold;
         margin: 0.1rem;
         cursor: pointer;
         border-radius: 50%;
-        width: 3rem;
-        height: 3rem;
+        width: 2rem;
+        height: 2rem;
+    }
+    .color-picker span.show-more {
+        color: #717171;
+        border: 1px solid #717171;
+        font-size: 1.25rem;
     }
     .picked::after {
         content: '✔';

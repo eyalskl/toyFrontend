@@ -1,0 +1,25 @@
+// SETUP
+@import './setup/vars';
+@import './setup/mixins';
+// BASICS
+@import './basics/base';
+@import './basics/layout';
+@import './basics/helpers';
+// CMPS 
+@import './cmps/nav-bar';
+@import './cmps/toy-list';
+@import './cmps/toy-filter';
+@import './cmps/toy-preview';
+@import './cmps/user-msg';
+@import './cmps/nice-popup';
+// CUTSTOM CMPS
+@import './custom-cmps/chat-app';
+@import './custom-cmps/toggle-btn';
+// VIEWS 
+@import './views/home-page';
+@import './views/about-us';
+@import './views/user-profile';
+@import './views/toy-app';
+@import './views/toy-details';
+@import './views/toy-edit';
+@import './views/dashboard';

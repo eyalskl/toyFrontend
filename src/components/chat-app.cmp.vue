@@ -13,7 +13,6 @@
 </template>
 
 <script>
-
 export default {
   data() {
     return {
@@ -47,36 +46,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-    .chat-app {
-        height: 92%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
-    .chat-container {
-        overflow: auto;
-    }
-    .chat-container span {
-        color: #717171;
-        font-size: .875rem;
-        margin-inline-start: .25rem;
-    }
-    .close-chat {
-        color: white;
-        background-color: transparent;
-        border: none;
-        font-size: 1.15rem;
-        position: absolute;
-        top: 0;
-        right: 2.5px;
-    }
-    input {
-        width: 87.5%;
-        outline: none;
-    }
-    .send button {
-        width: 12.5%;
-    }
-</style>

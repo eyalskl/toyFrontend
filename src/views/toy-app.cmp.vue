@@ -1,6 +1,6 @@
 <template>
-  <div class="toy-app flex column">
-    <h2> 🧸 Our Toys 🧸 </h2>
+  <div class="toy-app toy-main flex column">
+    <h2> Our Toys </h2>
     <toy-filter @filter="setFilter" />
     <toy-list v-if="!isLoading" :toys="toys" @toyRemoved="remove" />
     <img v-else src="https://i.pinimg.com/originals/58/4b/60/584b607f5c2ff075429dc0e7b8d142ef.gif" alt="Loading...">
@@ -52,6 +52,12 @@ export default {
       document.removeEventListener('keydown', (e) => {
         if (e.key === 'Escape') this.togglePopup(false)
       })
+      this.setFilter({
+        name: "",
+        inStock: "",
+        type: "",
+        sort: "",
+      })
   },
   components: {
     toyList,
@@ -60,17 +66,3 @@ export default {
 }
 
 </script>
-
-<style scoped>
-  h2 {
-    margin: 1rem auto;
-    font-size: 2rem;
-    text-transform: uppercase;
-    text-shadow: 2px 2px 2px rgb(165, 165, 165);
-    cursor: default;
-  }
-  img {
-    align-self: center;
-    height: 15rem;
-  }
-</style>

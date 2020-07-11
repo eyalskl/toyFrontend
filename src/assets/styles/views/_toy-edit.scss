@@ -1,0 +1,62 @@
+.toy-edit {
+    text-align: center;
+    background-color: $clr5;
+    border: 1px solid $borderColor;
+    border-radius: 10px;
+    width: 22.5rem;
+    margin: 1rem auto;
+    padding: 1rem 3rem;
+    h2 {
+        @include header(2rem);
+        margin-block-end: 1rem;
+    }
+    form {
+        >*:not(:last-child) {
+            margin-block-end: 1rem;
+        }
+        .input-container {
+            @include inputWrapper;
+            background-color: #eee;
+            width: 100%;
+            &:focus {
+                outline: rgb(0, 24, 32);
+            }
+            input {
+                width: 79.8%;
+            }
+            label {
+                width: 100%;
+                background-color: inherit;
+                color: rgb(141, 141, 141);
+                border: none;
+            }
+        }
+        .stock-container {
+            background-color: #eee;
+            box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302), 0 1px 3px 1px rgba(60, 64, 67, 0.149);
+            border-radius: 10px;
+            padding: .75rem 1rem;
+            width: 9rem;
+            margin: 0 auto;
+            color: rgb(141, 141, 141);
+            margin-block-end: 1rem;
+            &:hover {
+                box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.302), 0 4px 8px 3px rgba(60, 64, 67, 0.149);
+            }
+        }
+        button {
+            background-color: $clr1;
+            color: $clr5;
+            font-size: 1.15rem;
+            padding: .75rem 2rem;
+            border-radius: 5px;
+            margin: 0 auto;
+            border: 1px solid $borderColor;
+            font-family: 'Righteous';
+            text-transform: uppercase;
+            &:hover {
+                background-color: darken($clr1, 5);
+            }
+        }
+    }
+}

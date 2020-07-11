@@ -1,33 +1,46 @@
 <template>
-  <section class="toy-edit">
+  <section v-if="toyToEdit" class="toy-edit toy-main">
     <button class="back-btn" title="Back" @click="$router.push('/toy')">
       <i class="fas fa-arrow-left"></i>
     </button>
-    <h2>{{ (toyToEdit._id) ? 'Edit' : 'Add New' }} Toy -</h2>
+    <h2>{{ (toyToEdit._id) ? 'Edit' : 'Add New' }} Toy</h2>
     <form class="flex column" v-if="toyToEdit" @submit.prevent="saveToy">
-      <label>
-        Name:
-        <input type="text" v-model="toyToEdit.name" placeholder="Toy name..." />
-      </label>
-      <label>
-        Type:
-        <input type="text" v-model="toyToEdit.type" placeholder="Insert type..." />
-      </label>
-      <label>
-        Price:
-        <input type="number" v-model.number="toyToEdit.price" placeholder="Insert price..." />
-      </label>
-      <label>
-        In stock?
-        <input type="checkbox" v-model="toyToEdit.inStock" />
-      </label>
-      <button>Save</button>
+      <div class="input-container">
+        <label>
+          Name:
+          <input
+            ref="nameInput"
+            type="text"
+            v-model="toyToEdit.name"
+            placeholder="Toy name..."
+          />
+        </label>
+      </div>
+      <div class="input-container">
+        <label>
+          Type:
+          <input type="text" v-model="toyToEdit.type" placeholder="Insert type..." />
+        </label>
+      </div>
+      <div class="input-container">
+        <label>
+          Price:
+          <input type="number" v-model.number="toyToEdit.price" placeholder="Insert price..." />
+        </label>
+      </div>
+      <div class="stock-container">
+        <label class="flex align-center space-between">
+          In stock?
+          <toggle-btn v-model="toyToEdit.inStock" />
+        </label>
+      </div>
+      <button> Save </button>
     </form>
   </section>
 </template>
 
 <script>
-import { ValidationProvider } from "vee-validate";
+import toggleBtn from "@/custom-cmps/toggle-btn.cmp.vue";
 
 import { toyService } from "@/services/toy.service.js";
 import { eventBus, SHOW_MSG } from "@/services/event-bus.service.js";
@@ -70,7 +83,7 @@ export default {
     this.loadToy();
   },
   components: {
-    ValidationProvider
+    toggleBtn
   }
 };
 </script>

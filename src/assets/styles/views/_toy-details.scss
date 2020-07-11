@@ -1,0 +1,51 @@
+.toy-details {
+    padding: 1rem;
+    text-align: center;
+    .toy-details-header {
+        @include header(2.5rem);
+        text-transform: capitalize;
+        padding: 1rem;
+        border: 1px solid $borderColor;
+        width: fit-content;
+        border-radius: .33rem;
+        background-color: $clr5;
+        transition: .3s;
+    }
+    .toy-details-header:hover {
+        border-color: black;
+    }
+    .toy-details-desc {
+        color: rgb(51, 51, 51);
+        text-shadow: 1px 1px 1px rgb(192, 192, 192);
+        font-size: 1.05rem;
+        width: 40rem;
+        margin: 1rem auto;
+    }
+    img {
+        height: 15rem;
+        margin-top: 0;
+    }
+    .toy-details-type {
+        @include badge($borderColor)
+    }
+    .toy-details-stock {
+        @include stock
+    }
+    .toy-details-tag {
+        margin: 0;
+    }
+    .toy-details-controls {
+        button {
+            background-color: $clr1;
+            color: $clr5;
+            font-size: 1.25rem;
+            margin: 0 .5rem;
+            padding: .5rem;
+            border-radius: 0.33rem;
+            transition: .3s;
+            &:hover {
+                background-color: darken($clr1, 5%);
+            }
+        }
+    }
+}

@@ -1,0 +1,27 @@
+.home-page {
+    text-align: center;
+    margin-top: 8rem;
+    margin-inline-end: 15rem;
+    font-size: 1.5rem;
+    @media (max-width: 520px) {
+        & {
+            font-size: 1.15rem;
+            text-align: center;
+            margin: 0;
+            margin-block-start: 5rem;
+            transform: rotate(-10deg);
+            h3 {
+                margin-top: 5rem;
+                transform: rotate(20deg);
+            }
+        }
+    }
+    h3,
+    h1 {
+        cursor: default;
+        color: complement($clr1);
+        span {
+            color: $clr1;
+        }
+    }
+}

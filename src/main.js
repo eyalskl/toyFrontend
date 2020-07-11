@@ -3,11 +3,9 @@ import app from './app.vue'
 import router from './router'
 import store from './store'
 import '@/filters/filters.js'
-import '@/assets/css/main.css'
+import '@/assets/styles/main.scss';
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
-import { extend } from 'vee-validate';
-import { required } from 'vee-validate/dist/rules';
 import * as VueGoogleMaps from 'vue2-google-maps'
 
 Vue.use(ElementUI)
@@ -18,13 +16,6 @@ Vue.use(VueGoogleMaps, {
         libraries: 'places',
     },
 })
-
-// Add the required rule
-extend('required', {
-    ...required,
-    message: 'This field is required'
-});
-
 
 new Vue({
     router,

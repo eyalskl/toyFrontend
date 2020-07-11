@@ -1,0 +1,41 @@
+.toy-filter {
+    margin: 0 auto;
+    >* {
+        margin: 0 auto;
+        margin-block-end: 1rem;
+    }
+    .search-bar {
+        @include inputWrapper;
+        button {
+            background-color: inherit;
+            border: none;
+        }
+        @media (max-width: 390px) {
+            & {
+                width: 16rem;
+            }
+        }
+    }
+    .in-stock-filter {
+        button {
+            background-color: $clr5;
+            border: 1px solid $borderColor;
+            color: darken($borderColor, 30);
+            font-family: 'Actor', sans-serif;
+            font-size: 1rem;
+            margin: 0 .05rem;
+            border-radius: 2px;
+        }
+        .selected {
+            color: $clr1;
+            background-color: lighten($clr1, 45);
+            font-weight: bold;
+        }
+    }
+    .select-boxes {
+        margin-bottom: 0;
+        >* {
+            margin: 0 .25rem;
+        }
+    }
+}

@@ -1,0 +1,47 @@
+.toy-list {
+    margin: 1rem 0;
+    .toy-container {
+        position: relative;
+        background-color: $clr5;
+        border: 1px solid $borderColor;
+        padding: 1rem;
+        margin: .5rem;
+        flex: 1;
+        flex-basis: 15rem;
+        min-width: 15rem;
+        max-width: 20rem;
+        border-radius: 2rem;
+        transition: border-color 0.3s;
+        cursor: pointer;
+        &:hover {
+            border-color: black;
+        }
+        button {
+            position: absolute;
+            background-color: transparent;
+            border: none;
+            padding: 0.5rem 0.75rem;
+            font-size: 1.1rem;
+            color: #717171;
+            transition: 0.3s;
+            bottom: 0.25rem;
+            &:hover {
+                color: black;
+                border-radius: 50%;
+                padding: 0.5rem 0.75rem;
+                background-color: rgba(2, 2, 2, 0.123);
+            }
+        }
+        button:last-of-type {
+            left: 3rem;
+        }
+    }
+    .toy-add {
+        font-size: 10rem;
+        color: $clr1;
+        background-color: lighten($clr1, 50);
+        &:hover {
+            color: darken($clr1, 5);
+        }
+    }
+}

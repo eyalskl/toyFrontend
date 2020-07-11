@@ -26,12 +26,12 @@ function remove(id) {
     return axios.delete(_getUrl(id))
 }
 
-function save(user) {
-    return (user._id) ? _update(user) : _add(user)
-}
+// function save(user) {
+//     return (user._id) ? _update(user) : _add(user)
+// }
 
-function _update(user) {
-    return axios.put(_getUrl(id), user)
+function save(user) {
+    return axios.put(_getUrl(), user)
         .then(res => res.data)
 }
 

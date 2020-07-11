@@ -1,22 +1,22 @@
 <template>
   <div class="gender-picker flex column">
-      <h2>Gender</h2>
-      <button :class="{selected : gender === 'male'}" @click="setGender('male')"> <i class="fas fa-mars"></i> Male </button>
-      <button :class="{selected : gender === 'female'}" @click="setGender('female')"> <i class="fas fa-venus"></i> Female </button>
-      <button :class="{selected : gender === 'unknown'}" @click="setGender('unknown')"> <i class="fas fa-question"></i> I'd rather not say </button>
+      <button :class="{selected : genderPicked === 'male'}" @click="setGender('male')"> <i class="fas fa-mars"></i> Male </button>
+      <button :class="{selected : genderPicked === 'female'}" @click="setGender('female')"> <i class="fas fa-venus"></i> Female </button>
+      <button :class="{selected : genderPicked === 'unknown'}" @click="setGender('unknown')"> <i class="fas fa-question"></i> I'd rather not say </button>
   </div>
 </template>
 
 <script>
 export default {
+    props: ['gender'],
     data() {
         return {
-            gender: ''
+            genderPicked: this.gender,
         }
     },
     methods: {
         setGender(gender) {
-            this.gender = gender
+            this.genderPicked = gender
             this.$emit('input', gender)
         }
     }
@@ -24,13 +24,11 @@ export default {
 </script>
 
 <style scoped>
-    h2 {
-        text-decoration: underline;
-    }
     .gender-picker {
-        width: 12.5rem;
+        width: 15rem;
         text-align: left;
         margin: 1rem;
+        border: 1px solid #717171;
     }
     i {
         margin-inline-end: .5rem;
@@ -38,6 +36,7 @@ export default {
     button {
         font-size: 1.1rem;
         text-align: left;
+        border: none;
     }
     .selected {
         background-color: rgb(124, 124, 124);

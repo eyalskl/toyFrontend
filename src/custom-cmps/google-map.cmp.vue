@@ -1,11 +1,15 @@
 <template>
-  <section class="google-map">
-      <h1>Our Branches</h1>
+  <section class="google-map flex column align-center">
+      <h1 class="map-header"><i class="fas fa-store"></i> Our Branches</h1>
+    <div class="branch-controls">   
+        <button @click="setTelAviv"> Tel-Aviv </button>
+        <button @click="setParis"> Paris </button>
+        <button @click="setBerlin"> Berlin </button>
+    </div>
     <GmapMap
       :center="center"
       :zoom="7"
       map-type-id="terrain"
-      style="width: 500px; height: 300px"
     >
       <GmapMarker
         :key="index"
@@ -16,11 +20,7 @@
         @click="center=m.position"
       />
     </GmapMap>
-    <div class="branch-controls">   
-        <button @click="setTelAviv"> Tel-Aviv </button>
-        <button @click="setParis"> Paris </button>
-        <button @click="setBerlin"> Berlin </button>
-    </div>
+
   </section>
 </template>
 
@@ -51,11 +51,21 @@ export default {
 </script>
 
 <style>
-.google-map >*:nth-child(2) {
+  .vue-map-container {
+    width: 500px;
+    height: 300px;
+  }
+.google-map h1.map-header {
+  margin-block-start: 2rem;
+  border-bottom: 1px solid #717171;
+}
+.google-map >*:nth-child(3) {
     border: 1px solid rgb(165, 165, 165);
     margin: 1rem auto;
 }
-
+.branch-controls {
+  margin-block-start: 1rem;
+}
 .google-map button {
     font-family: 'Righteous', cursive;
     border: 1px solid rgb(185, 185, 185);
@@ -68,6 +78,19 @@ export default {
 }
 .google-map button:hover {
     background-color: #0099c3;
+}
+
+@media (max-width: 620px) {
+  .vue-map-container {
+    width: 400px;
+    height: 300px;
+  }
+}
+@media (max-width: 475px) {
+  .vue-map-container {
+    width: 270px;
+    height: 200px;
+  }
 }
 
 </style>

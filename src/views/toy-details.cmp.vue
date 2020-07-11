@@ -1,12 +1,12 @@
 <template>
-  <div v-if="toy" class="toy-details">
+  <div v-if="toy" class="toy-details toy-main">
     <button class="back-btn" title="Back" @click="$router.back()">
       <i class="fas fa-arrow-left"></i>
     </button>
     <h1 class="toy-details-header">{{ toy.name }} - ${{ toy.price }}</h1>
     <div class="toy-details-tag flex justify-center align-center">
-      <p class="toy-preview-type">{{toy.type}}</p>
-      <h5 class="toy-preview-stock" :class="inStock">{{ (toy.inStock) ? 'In Stock' : 'Out of Stock' }}</h5>
+      <p class="toy-details-type">{{toy.type}}</p>
+      <h5 class="toy-details-stock" :class="inStock">{{ (toy.inStock) ? 'In Stock' : 'Out of Stock' }}</h5>
     </div>
     <img :src="`https://robohash.org/${toy._id}.png`">
     <p class="toy-details-desc"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex assumenda amet similique culpa nam! Quae sed quam dolor libero, corporis nesciunt nemo ut, aspernatur architecto veritatis, modi delectus dignissimos corrupti doloremque quis ipsum a vitae? Facere facilis quasi natus itaque explicabo ad, quisquam nam non labore hic voluptas iure rerum magni, maiores amet quos sunt dolor dolore dignissimos placeat reprehenderit. Soluta nam eaque necessitatibus similique deleniti iste aspernatur earum recusandae quos odit. Commodi, esse aspernatur! Dolorum rerum odit at? Commodi voluptas reprehenderit sapiente voluptatem! Ratione non exercitationem ut quia iure, et minima aliquam ducimus reprehenderit magni corrupti? Tenetur, doloremque cumque? </p>
